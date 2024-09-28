@@ -1,0 +1,19 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+#Byte compiled files
+*.pyc
+__pycache__/
+
+# virtual enviroment
+venv/
+
+# PyCharm project files
+.idea/
+
+# Logs
+*.log
+
+# sensative information
+.env
