@@ -31,6 +31,7 @@ class TestArrayMethods:
         {'input_array': [-2, -1, -1, 0, 1],    'expected_output': [-2, -1, 0, 1]  },
         {'input_array': [0,0,1,1,1,2,2,3,3,4], 'expected_output': [0, 1, 2, 3, 4] },
     ])
+
     def test_remove_duplicates(self, input_data):
         input_array     = input_data['input_array']
         expected_output = input_data['expected_output']
@@ -40,6 +41,21 @@ class TestArrayMethods:
             assert result_array[:] == expected_output
         else:
             assert result_array[:k] == expected_output
+
+    # @pytest.mark.parametrize("input_data", [
+    #     {'input_array': [],                             'expected_output': []                    },
+    #     {'input_array': [1],                            'expected_output': []                    },
+    #     {'input_array': [2, 2],                         'expected_output': []                    },
+    #     {'input_array': [1, 2, 2, 1],                   'expected_output': [1, 1]                },
+    #     {'input_array': [-2, -1, -1, 0, 1],             'expected_output': [-1, -1, 0, 1]        },
+    #     {'input_array': [0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 'expected_output': [0, 0, 2, 2, 3, 3, 4] },
+    # ])
+
+    # def test_remove_elements(self, input_data):
+    #         input_array     = input_data['input_array']
+    #         expected_output = input_data['expected_output']
+    #         result_array    = input_array
+    #         k = removeElements(result_array)
 
 if __name__ == '__main__':
     unittest.main()
