@@ -12,6 +12,20 @@
 # p2 will only travel the array when a unique item has been found.
 from tests.test_helper_func import check_ascending
 
+def removeElements(nums,key):
+
+    k = 0
+    L = len(nums)
+    q = L-1
+    for p in range(L):
+        if nums[L-1-p] != key:
+            k+=1
+        else:
+            nums[L-1-p]='_'
+            nums[L - 1 - p] , nums[q]  = nums[q], nums[L - 1 - p]
+            q -= 1
+    return k
+
 def removeDuplicates(array):
     if not array or (False == check_ascending(array)):
         k = 0
