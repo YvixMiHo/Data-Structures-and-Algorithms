@@ -1,6 +1,6 @@
 import unittest
 import pytest
-from DSA.Data_Structures.Arrays.array_problems import removeDuplicates, removeElements
+from DSA.Data_Structures.Arrays.array_problems import removeDuplicates, removeElements, selfConcatenation
 
 # nums = [1, 2, 2,1]
 # nums2 = [0,0,1,1,1,2,2,3,3,4]
@@ -58,6 +58,19 @@ class TestArrayMethods:
             k = removeElements(input_array,key)
             input_array[:k] = sorted(input_array[:k])
             assert input_array[:k] == expected_output
+
+
+    @pytest.mark.parametrize("input_data", [
+        {'input_array': [],         'expected_output': []                    },
+        {'input_array': [1],        'expected_output': [1,1]                 },
+        {'input_array': [1, 2, 3],  'expected_output': [1,2,3,1,2,3]       },
+    ])
+
+    def test_self_concatenation(self, input_data):
+            input_array     = input_data['input_array']
+            expected_output = input_data['expected_output']
+            output_array = selfConcatenation(input_array)
+            assert output_array == expected_output
 
 
 
