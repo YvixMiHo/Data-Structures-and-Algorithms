@@ -21,7 +21,7 @@ def removeElements(nums,key):
         if nums[L-1-p] != key:
             k+=1
         else:
-            nums[L-1-p]='_'
+            #nums[L-1-p]='_'
             nums[L - 1 - p] , nums[q]  = nums[q], nums[L - 1 - p]
             q -= 1
     return k
