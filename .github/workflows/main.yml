@@ -3,11 +3,10 @@ name: CI Build
 on:
   push:
     branches:
-      -develop 
+      -'*' # trigger workflow on push to all branches
   pull_request:
     branches:
-      -develop 
-      -master
+      -'x' # trigger workflow on all pr
 jobs:
   build:
     runs-on:
