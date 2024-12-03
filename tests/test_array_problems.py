@@ -1,20 +1,10 @@
 import unittest
+from pickle import FALSE
+
 import pytest
 from DSA.Data_Structures.Arrays.array_problems import removeDuplicates, removeElements, selfConcatenation
+from DSA.Data_Structures.Arrays.stack_problems import isValidParentheses, MinStack
 
-# nums = [1, 2, 2,1]
-# nums2 = [0,0,1,1,1,2,2,3,3,4]
-# nums3 = [-2,-1,-1,0,1,2,2]
-# nums4 = [-4,-3,-3,-2,-2,-1,-1,0,0]
-# nums5 = [0]
-# nums6 = []
-#
-# expectedNums = [1,2,'_']
-# expectedNums2 = [0, 1, 2, 3, 4, '_', '_', '_', '_', '_']
-# expectedNums3 = [-2,-1,0,1,2, '_','_']
-# expectedNums4 = [-4,-3,-2,-1,0,'_', '_', '_', '_', '_']
-# expectedNums5 = [0]
-# expectedNums6 = []
 
 class TestArrayMethods:
     # @pytest.fixture(autouse=True)
@@ -72,7 +62,59 @@ class TestArrayMethods:
             output_array = selfConcatenation(input_array)
             assert output_array == expected_output
 
+    @pytest.mark.parametrize("input_data", [
+        {'input_array':  "",            'expected_output': False    },
+        {'input_array':  "[",           'expected_output': False    },
+        {'input_array':  "](",          'expected_output': False    },
+        {'input_array':  "[]",          'expected_output': True     },
+        {'input_array':  "[(])",        'expected_output': False    },
+        {'input_array':  "([{}])",      'expected_output': True     },
+        {'input_array':  "()[]{}",      'expected_output': True     },
+    ])
 
+    def test_is_valid_parentheses(self, input_data):
+            input_array     = input_data['input_array']
+            expected_output = input_data['expected_output']
+            status = isValidParentheses(input_array)
+            assert status == expected_output
+
+    # @pytest.mark.parametrize("operations, expected_outputs", [
+    #     (
+    #         ["MinStack", "push", "push", "push", "getMin", "pop", "top", "getMin"],
+    #         [None, None, None, None, -3, None, 0, -2]
+    #     )
+    # ])
+    #
+    # def test_MinStack(self,operations, expected_outputs):
+    #         Stack = MinStack()
+    #         values = [-2, 0, -3]
+    #         output = []
+    #         val_idx = 0
+    #
+    #         print(f"Output initial: {output}")
+    #
+    #         for _,operation in enumerate(operations):
+    #             match operation:
+    #                     case "MinStack":
+    #                         output.append(None)
+    #                     case "push":
+    #                         if val_idx < len(values):
+    #                             Stack.push(values[val_idx])
+    #                             val_idx+=1
+    #                         output.append(None)
+    #                     case "pop":
+    #                         output.append(Stack.pop())
+    #                     case "top":
+    #                         output.append(Stack.top())
+    #                     case "getMin":
+    #                         output.append(Stack.getMin())
+    #                     case _:
+    #                         assert False, f"Unexpected operation: {operation}"
+    #
+    #         print(f"Output final: {output}")
+    #         print(f"Expected Outputs: {expected_outputs}")
+    #         assert output == expected_outputs, f"Test failed! Output: {output}, Expected: {expected_outputs}"
+    #         assert len(output) == len(expected_outputs), f"Length mismatch! Output length: {len(output)}, Expected length: {len(expected_outputs)}"
 
 if __name__ == '__main__':
     unittest.main()

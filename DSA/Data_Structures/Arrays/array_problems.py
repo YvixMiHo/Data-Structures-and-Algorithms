@@ -24,10 +24,6 @@ from pandas.core.internals.construction import arrays_to_mgr
  # take the length of the array
  # we will iterate length of the array
  # we will append the a[i] element on each pass through
-
-
-
-
 from tests.test_helper_func import check_ascending
 
 def removeElements(nums,key):
