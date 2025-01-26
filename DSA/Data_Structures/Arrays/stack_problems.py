@@ -11,12 +11,14 @@ class MinStack:
             self.stack = []
             self.min_stack = []
 
+    #method to check is empty
     def is_empty(self)->bool:
             retVal = False
             if not self.stack:
                retVal = True
             return retVal
 
+    # method to push values to stack
     def push(self, val: int) -> None:
             if self.is_empty():
                 self.stack.append(val)
